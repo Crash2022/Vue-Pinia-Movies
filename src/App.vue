@@ -1,6 +1,6 @@
 <template>
     <div class="app">
-        App
+        <movies-page/>
     </div>
 <!--    <nav>-->
 <!--        <router-link to="/">Home</router-link>-->
@@ -9,6 +9,10 @@
 <!--    </nav>-->
 <!--    <router-view/>-->
 </template>
+
+<script setup lang="ts">
+import MoviesPage from '@/pages/MoviesPage.vue'
+</script>
 
 <style lang="scss">
 //#app {
@@ -41,10 +45,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
     width: 100%;
-    max-width: 600px;
+    max-width: 900px;
     margin: 0 auto;
     border: 1px solid black;
-    overflow-x: hidden;
+    //overflow-x: hidden;
 }
 </style>
