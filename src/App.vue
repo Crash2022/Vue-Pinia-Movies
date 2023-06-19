@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="app">
         App
     </div>
 <!--    <nav>-->
@@ -38,6 +38,13 @@
     box-sizing: border-box;
 }
 .app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid black;
     overflow-x: hidden;
 }
 </style>
