@@ -5,8 +5,8 @@
         </div>
         <div class="movie_info">
             <div class="info_content">
-                <div class="movie_title">Title</div>
-                <div class="movie_overview">Overview</div>
+                <div class="movie_title">{{movie.original_title}}</div>
+                <div class="movie_overview">{{movie.overview}}</div>
             </div>
             <div class="toggle_movie">Toggle</div>
         </div>
