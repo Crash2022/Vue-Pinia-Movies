@@ -5,7 +5,7 @@ import store from './store'
 import {createPinia} from 'pinia'
 
 createApp(App)
-    .use(createPinia)
+    .use(createPinia())
     .use(store)
     .use(router)
     .mount('#app')

@@ -1,6 +1,7 @@
 <template>
     <div class="app">
         <movies-page/>
+        <movie-item/>
     </div>
 <!--    <nav>-->
 <!--        <router-link to="/">Home</router-link>-->
@@ -12,6 +13,7 @@
 
 <script setup lang="ts">
 import MoviesPage from '@/pages/MoviesPage.vue'
+import MovieItem from '@/components/MovieItem.vue';
 </script>
 
 <style lang="scss">
