@@ -19,8 +19,8 @@ export default {
     border-radius: 5px;
     cursor: pointer;
     height: 38px;
-    /*min-width: 150px;*/
-    width: 100%;
+    min-width: 100px;
+    /*width: 100%;*/
     font-size: 18px;
     display: flex;
     align-items: center;

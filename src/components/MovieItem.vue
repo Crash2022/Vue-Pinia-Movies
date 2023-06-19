@@ -8,11 +8,18 @@
                 <div class="movie_title">{{movie.original_title}}</div>
                 <div class="movie_overview">{{movie.overview}}</div>
             </div>
-            <div class="toggle_movie">
-                <custom-button @click="">
-                    <span v-if="!movie.isWatched">Добавить</span>
-                    <span v-else>Удалить</span>
-                </custom-button>
+            <div class="movie_buttons">
+                <div>
+                    <custom-button @click="">
+                        <span v-if="!movie.isWatched">Непросмотрено</span>
+                        <span v-else>Просмотрено</span>
+                    </custom-button>
+                </div>
+                <div class="movie_delete">
+                    <custom-button @click="">
+                        Удалить
+                    </custom-button>
+                </div>
             </div>
         </div>
     </div>
@@ -59,8 +66,16 @@ const props = defineProps({
                 margin-bottom: 10px;
             }
         }
-        .toggle_movie {
+        .movie_buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
 
+            .movie_delete {
+                button {
+                    background-color: red;
+                }
+            }
         }
     }
 }
