@@ -8,12 +8,19 @@
                 <div class="movie_title">{{movie.original_title}}</div>
                 <div class="movie_overview">{{movie.overview}}</div>
             </div>
-            <div class="toggle_movie">Toggle</div>
+            <div class="toggle_movie">
+                <custom-button @click="">
+                    <span v-if="!movie.isWatched">Добавить</span>
+                    <span v-else>Удалить</span>
+                </custom-button>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup>
+import CustomButton from '@/shared/ui/CustomUI/CustomButton.vue';
+
 const props = defineProps({
     movie: {
         type: Object,
@@ -27,13 +34,17 @@ const props = defineProps({
 .movie_item {
     display: flex;
     gap: 40px;
-    border: 1px solid black;
-    border-radius: 5px;
     padding: 10px;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    box-shadow: 1px 1px 6px gray;
 
     .movie_poster {
         img {
             width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
         }
     }
     .movie_info {
@@ -43,6 +54,8 @@ const props = defineProps({
 
         .info_content {
             .movie_title {
+                font-weight: bold;
+                font-size: 20px;
                 margin-bottom: 10px;
             }
         }

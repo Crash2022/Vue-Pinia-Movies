@@ -13,11 +13,11 @@ export const useMoviesStore = defineStore('moviesStore', {
             },
             {
                 id: 2,
-                original_title: 'Home Alone',
+                original_title: 'Home Alone 2',
                 overview: 'About boy stay at home alone in New York',
                 poster_path: 'https://media.suara.com/suara-partners/purwasuka/thumbs/336x189/2022/12/25/1-3ef3bc7f-1bf4-4b4e-b506-ceba72d1dbe9.jpeg',
                 release_date: '1992-01-01',
-                isWatched: false
+                isWatched: true
             }
         ]
     })
