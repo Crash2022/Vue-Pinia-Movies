@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import {createPinia} from 'pinia'
 import components from '@/shared/ui/'
+import directives from '@/shared/directives/index'
+// import VFocus from '@/shared/directives/VFocus'
 
 const app = createApp(App)
 
@@ -11,6 +13,11 @@ const app = createApp(App)
 components.forEach((comp: any) => {
     app.component(comp.name, comp)
 })
+
+directives.forEach((dir: any) => {
+    app.directive(dir.name, dir)
+})
+// app.directive('focus', VFocus)
 
 app.use(createPinia())
    .use(store)
