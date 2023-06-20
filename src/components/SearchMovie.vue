@@ -17,7 +17,7 @@
             </div>
         </form>
         <div v-if="searchStore.isLoading" class="loader">
-            Идёт поиск...
+            <roller-loader/>
         </div>
     </div>
 </template>
@@ -26,6 +26,7 @@
 import {ref} from 'vue'
 import {useSearchStore} from '@/pinia/searchStore'
 import CustomButton from '@/shared/ui/CustomUI/CustomButton.vue'
+import RollerLoader from '@/shared/ui/CustomUI/RollerLoader.vue';
 
 const searchStore=useSearchStore()
 const searchQuery = ref('')
@@ -48,8 +49,9 @@ const searchQuery = ref('')
         }
     }
     .loader {
-        margin-top: 20px;
-        text-align: center;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
     }
 }
 </style>
