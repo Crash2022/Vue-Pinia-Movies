@@ -16,7 +16,9 @@
                 </custom-button>
             </div>
         </form>
-        <roller-loader v-if="searchStore.isLoading"/>
+        <div v-if="searchStore.isLoading" class="loader">
+            Идёт поиск...
+        </div>
     </div>
 </template>
 
@@ -24,7 +26,6 @@
 import {ref} from 'vue'
 import {useSearchStore} from '@/pinia/searchStore'
 import CustomButton from '@/shared/ui/CustomUI/CustomButton.vue'
-import RollerLoader from '@/shared/ui/CustomUI/RollerLoader.vue'
 
 const searchStore=useSearchStore()
 const searchQuery = ref('')
@@ -45,6 +46,10 @@ const searchQuery = ref('')
         .search_button {
             height: 50px;
         }
+    }
+    .loader {
+        margin-top: 20px;
+        text-align: center;
     }
 }
 </style>
