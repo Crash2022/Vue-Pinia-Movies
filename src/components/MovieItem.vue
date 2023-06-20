@@ -1,10 +1,14 @@
 <template>
     <div class="movie_item">
-        <div v-if="movie.poster_path" class="movie_poster">
+        <div v-if="movie.poster_path"
+             class="movie_poster"
+        >
 <!--            <img :src="movie.poster_path" :alt="movie.original_title">-->
             <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.original_title">
         </div>
-        <div v-else class="movie_poster">
+        <div v-else
+             class="movie_poster"
+        >
             <img src="@/shared/assets/no-image.jpg" alt="movie_poster">
         </div>
 
@@ -14,7 +18,9 @@
                 <div class="movie_overview">{{movie.overview}}</div>
             </div>
 
-            <div class="movie_buttons" v-if="!isSearch">
+            <div v-if="!isSearch"
+                 class="movie_buttons"
+            >
                 <div class="movie_watched">
                     <custom-button @click="moviesStore.toggleIsWatchedMovie(movie.id)"
                                    :class="`${movie.isWatched ? 'button_watched' : 'button_unwatched'}`"
@@ -29,7 +35,9 @@
                     </custom-button>
                 </div>
             </div>
-            <div class="movie_buttons" v-else>
+            <div v-else
+                 class="movie_buttons"
+            >
                 <div class="movie_watched">
                     <custom-button @click="moviesStore.toggleIsWatchedMovie(movie.id)"
                                    class="add_button"
@@ -38,13 +46,12 @@
                     </custom-button>
                 </div>
             </div>
-
         </div>
     </div>
 </template>
 
 <script setup>
-import CustomButton from '@/shared/ui/CustomUI/CustomButton.vue';
+import CustomButton from '@/shared/ui/CustomUI/CustomButton.vue'
 import {useMoviesStore} from '@/pinia/moviesStore'
 
 const moviesStore = useMoviesStore()

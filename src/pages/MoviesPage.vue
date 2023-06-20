@@ -17,7 +17,9 @@
             </custom-button>
         </div>
 
-        <div class="moviesList_wrapper" v-if="moviesStore.activeTab === 'movies'">
+        <div v-if="moviesStore.activeTab === 'movies'"
+             class="moviesList_wrapper"
+        >
             <div class="moviesList">
                 <div class="moviesList_title">
                     Просмотренные фильмы ({{moviesStore.watchedMovies.length}})
@@ -38,7 +40,6 @@
                 />
             </div>
         </div>
-
         <div v-else>
             <search-movie/>
         </div>

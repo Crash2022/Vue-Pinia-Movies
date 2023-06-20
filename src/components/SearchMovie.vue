@@ -17,7 +17,9 @@
             </div>
         </form>
 
-        <div v-if="searchStore.isLoading" class="loader">
+        <div v-if="searchStore.isLoading"
+             class="loader"
+        >
             <roller-loader/>
         </div>
         <div v-else class="searchedMovies">
@@ -37,8 +39,8 @@
 import {ref} from 'vue'
 import {useSearchStore} from '@/pinia/searchStore'
 import CustomButton from '@/shared/ui/CustomUI/CustomButton.vue'
-import RollerLoader from '@/shared/ui/CustomUI/RollerLoader.vue';
-import MovieItem from '@/components/MovieItem.vue';
+import RollerLoader from '@/shared/ui/CustomUI/RollerLoader.vue'
+import MovieItem from '@/components/MovieItem.vue'
 
 const searchStore=useSearchStore()
 const searchQuery = ref('')
