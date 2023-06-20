@@ -1,6 +1,6 @@
 <template>
     <div class="search_wrapper">
-        <form @submit.prevent="" class="search_form">
+        <form @submit.prevent="searchStore.getMovies(searchQuery)" class="search_form">
             <custom-input v-model="searchQuery"
                           type="text"
                           placeholder="Поиск фильма"
@@ -12,7 +12,9 @@
 
 <script setup>
 import {ref} from 'vue'
+import {useSearchStore} from '@/pinia/searchStore'
 
+const searchStore=useSearchStore()
 const searchQuery = ref('')
 </script>
 
