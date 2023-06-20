@@ -75,22 +75,26 @@ header {
 
     button {
         &:hover {
-            background-color: cornflowerblue;
+            background-color: darkorange;
         }
     }
 
     .tabs_btn {
         // default styles here
+        background-color: cornflowerblue;
     }
     .btn_active {
-        background-color: cornflowerblue;
+        background-color: darkorange;
     }
 }
 .moviesList_wrapper {
     .moviesList {
+        margin-bottom: 30px;
+
         .moviesList_title {
             text-align: center;
             margin-bottom: 20px;
+            text-decoration: underline;
         }
         > div {
             margin-bottom: 10px;

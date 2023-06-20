@@ -20,7 +20,7 @@ export const useMoviesStore = defineStore('moviesStore', {
                 isWatched: true
             }
         ],
-        activeTab: 'movies'
+        activeTab: 'search'
     }),
     getters: {
         watchedMovies(state) {
