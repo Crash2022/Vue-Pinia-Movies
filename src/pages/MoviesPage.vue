@@ -17,11 +17,26 @@
             </custom-button>
         </div>
 
-        <div class="movies_list" v-if="moviesStore.activeTab === 'movies'">
-            <movie-item v-for="mov in moviesStore.movies"
-                        :key="mov.id"
-                        :movie="mov"
-            />
+        <div class="moviesList_wrapper" v-if="moviesStore.activeTab === 'movies'">
+            <div class="moviesList">
+                <div class="moviesList_title">
+                    Просмотренные фильмы ({{moviesStore.watchedMovies.length}})
+                </div>
+                <movie-item v-for="mov in moviesStore.watchedMovies"
+                            :key="mov.id"
+                            :movie="mov"
+                />
+            </div>
+
+            <div class="moviesList">
+                <div class="moviesList_title">
+                    Все фильмы ({{moviesStore.movies.length}})
+                </div>
+                <movie-item v-for="mov in moviesStore.movies"
+                            :key="mov.id"
+                            :movie="mov"
+                />
+            </div>
         </div>
         <div v-else>
             <search-movie/>
@@ -66,9 +81,15 @@ header {
         background-color: cornflowerblue;
     }
 }
-.movies_list {
-    > div {
-        margin-bottom: 10px;
+.moviesList_wrapper {
+    .moviesList {
+        .moviesList_title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        > div {
+            margin-bottom: 10px;
+        }
     }
 }
 </style>

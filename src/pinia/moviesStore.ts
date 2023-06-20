@@ -21,7 +21,21 @@ export const useMoviesStore = defineStore('moviesStore', {
             }
         ],
         activeTab: 'movies'
-    })
+    }),
+    getters: {
+        watchedMovies(state) {
+            return state.movies.filter((m: MovieType) => m.isWatched)
+        },
+        // иная запись обращения к стейту
+        // watchedMovies(movies) {
+        //     return this.movies.filter((m: MovieType) => m.isWatched)
+        // }
+
+        // пример (чтобы достатть прямое значение, нет необходимости делать геттер)
+        // totalMoviesCount(state) {
+        //     return state.movies.length
+        // }
+    }
 })
 
 export type MoviesStateType = {
