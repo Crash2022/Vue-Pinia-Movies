@@ -5,15 +5,15 @@
         </header>
 
         <div class="tabs">
-            <custom-button @click=""
+            <custom-button @click="moviesStore.setActiveTab('search')"
                            :class="['tabs_btn', {btn_active: moviesStore.activeTab === 'search'}]"
             >
                 Поиск
             </custom-button>
-            <custom-button @click=""
+            <custom-button @click="toggleTab('movies')"
                            :class="['tabs_btn', {btn_active: moviesStore.activeTab === 'movies'}]"
             >
-                Каталог
+                Избранное
             </custom-button>
         </div>
 
@@ -48,9 +48,14 @@
 import MovieItem from '@/components/MovieItem.vue'
 import SearchMovie from '@/components/SearchMovie.vue'
 import {useMoviesStore} from '@/pinia/moviesStore'
-import CustomButton from "@/shared/ui/CustomUI/CustomButton.vue";
+import CustomButton from "@/shared/ui/CustomUI/CustomButton.vue"
 
 const moviesStore = useMoviesStore()
+
+// другой вариант вызова экшена в шаблоне
+const toggleTab = (activeTab) => {
+    moviesStore.setActiveTab(activeTab)
+}
 </script>
 
 <style lang="scss" scoped>

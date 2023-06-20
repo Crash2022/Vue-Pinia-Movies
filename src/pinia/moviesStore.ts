@@ -31,16 +31,28 @@ export const useMoviesStore = defineStore('moviesStore', {
         //     return this.movies.filter((m: MovieType) => m.isWatched)
         // }
 
-        // пример (чтобы достатть прямое значение, нет необходимости делать геттер)
+        // пример (чтобы достать прямое значение, нет необходимости делать геттер)
         // totalMoviesCount(state) {
         //     return state.movies.length
         // }
+    },
+    actions: {
+        setActiveTab(activeTab: ActiveTabType) {
+            this.activeTab = activeTab
+        },
+        toggleIsWatchedMovie(movieId: number) {
+            const movieIndex = this.movies.findIndex(m => m.id === movieId)
+            this.movies[movieIndex].isWatched = !this.movies[movieIndex].isWatched
+        },
+        deleteMovie(movieId: number) {
+            this.movies = this.movies.filter(m => m.id !== movieId)
+        }
     }
 })
 
 export type MoviesStateType = {
     movies: MovieType[]
-    activeTab: 'movies' | 'search'
+    activeTab: ActiveTabType
 }
 
 export type MovieType = {
@@ -51,3 +63,5 @@ export type MovieType = {
     release_date: string
     isWatched: boolean
 }
+
+export type ActiveTabType = 'movies' | 'search'

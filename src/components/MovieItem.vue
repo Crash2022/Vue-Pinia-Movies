@@ -14,7 +14,7 @@
             </div>
             <div class="movie_buttons">
                 <div class="movie_watched">
-                    <custom-button @click=""
+                    <custom-button @click="moviesStore.toggleIsWatchedMovie(movie.id)"
                                    :class="`${movie.isWatched ? 'button_watched' : 'button_unwatched'}`"
                     >
                         <span v-if="!movie.isWatched">Непросмотрено</span>
@@ -22,7 +22,7 @@
                     </custom-button>
                 </div>
                 <div class="movie_delete">
-                    <custom-button @click="">
+                    <custom-button @click="moviesStore.deleteMovie(movie.id)">
                         Удалить
                     </custom-button>
                 </div>
@@ -33,6 +33,9 @@
 
 <script setup>
 import CustomButton from '@/shared/ui/CustomUI/CustomButton.vue';
+import {useMoviesStore} from '@/pinia/moviesStore'
+
+const moviesStore = useMoviesStore()
 
 const props = defineProps({
     movie: {
@@ -47,7 +50,7 @@ const props = defineProps({
 .movie_item {
     display: flex;
     gap: 40px;
-    padding: 10px;
+    padding: 20px;
     border: 1px solid #c4c4c4;
     border-radius: 5px;
     box-shadow: 1px 1px 6px gray;
