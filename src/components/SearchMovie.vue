@@ -46,6 +46,7 @@ const searchQuery = ref('')
         }
         .search_button {
             height: 50px;
+            background-color: green;
         }
     }
     .loader {
