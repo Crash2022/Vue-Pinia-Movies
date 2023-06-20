@@ -1,7 +1,7 @@
 import {defineStore} from 'pinia'
 
 export const useMoviesStore = defineStore('moviesStore', {
-    state: () => ({
+    state: (): MoviesStateType => ({
         movies: [
             {
                 id: 1,
@@ -19,6 +19,21 @@ export const useMoviesStore = defineStore('moviesStore', {
                 release_date: '1992-01-01',
                 isWatched: true
             }
-        ]
+        ],
+        activeTab: 'movies'
     })
 })
+
+export type MoviesStateType = {
+    movies: MovieType[]
+    activeTab: 'movies' | 'search'
+}
+
+export type MovieType = {
+    id: number
+    original_title: string
+    overview: string
+    poster_path: string
+    release_date: string
+    isWatched: boolean
+}
