@@ -16,10 +16,14 @@
                 </custom-button>
             </div>
         </form>
+
         <div v-if="searchStore.isLoading" class="loader">
             <roller-loader/>
         </div>
-        <div class="searchedMovies">
+        <div v-else class="searchedMovies">
+            <div class="search_length">
+                Найдено: {{searchStore.searchedMovies.length}} фильмов
+            </div>
             <movie-item v-for="mov in searchStore.searchedMovies"
                         :key="mov.id"
                         :movie="mov"
@@ -66,6 +70,9 @@ const searchQuery = ref('')
         justify-content: center;
     }
     .searchedMovies {
+        .search_length {
+            text-align: center;
+        }
         > div {
             margin-bottom: 10px;
         }

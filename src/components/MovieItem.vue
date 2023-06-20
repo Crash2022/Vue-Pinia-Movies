@@ -1,7 +1,8 @@
 <template>
     <div class="movie_item">
         <div v-if="movie.poster_path" class="movie_poster">
-            <img :src="movie.poster_path" :alt="movie.original_title">
+<!--            <img :src="movie.poster_path" :alt="movie.original_title">-->
+            <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.original_title">
         </div>
         <div v-else class="movie_poster">
             <img src="@/shared/assets/no-image.jpg" alt="movie_poster">
@@ -59,7 +60,6 @@ const props = defineProps({
 
     .movie_poster {
         min-width: 200px;
-        //height: 200px;
 
         img {
             width: 200px;
@@ -83,8 +83,7 @@ const props = defineProps({
                 margin-bottom: 10px;
             }
             .movie_overview {
-                //height: 37px; // 2 строки
-                height: 90px; // 2 строки
+                height: 90px; // 5 строк
 
                 // обрезка строки
                 overflow: hidden;
