@@ -5,10 +5,14 @@
         </header>
 
         <div class="tabs">
-            <custom-button @click="">
+            <custom-button @click=""
+                           :class="['tabs_btn', {btn_active: moviesStore.activeTab === 'search'}]"
+            >
                 Поиск
             </custom-button>
-            <custom-button @click="">
+            <custom-button @click=""
+                           :class="['tabs_btn', {btn_active: moviesStore.activeTab === 'movies'}]"
+            >
                 Каталог
             </custom-button>
         </div>
@@ -53,6 +57,13 @@ header {
         &:hover {
             background-color: cornflowerblue;
         }
+    }
+
+    .tabs_btn {
+        // default styles here
+    }
+    .btn_active {
+        background-color: cornflowerblue;
     }
 }
 .movies_list {

@@ -86,7 +86,7 @@ const props = defineProps({
                         }
                     }
                     .button_unwatched {
-                        background-color: cornflowerblue;
+                        background-color: darkslategrey;
 
                         &:hover {
                             opacity: 0.7;
