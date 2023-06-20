@@ -13,7 +13,8 @@
                 <div class="movie_title">{{movie.original_title}}</div>
                 <div class="movie_overview">{{movie.overview}}</div>
             </div>
-            <div class="movie_buttons">
+
+            <div class="movie_buttons" v-if="!isSearch">
                 <div class="movie_watched">
                     <custom-button @click="moviesStore.toggleIsWatchedMovie(movie.id)"
                                    :class="`${movie.isWatched ? 'button_watched' : 'button_unwatched'}`"
@@ -28,6 +29,16 @@
                     </custom-button>
                 </div>
             </div>
+            <div class="movie_buttons" v-else>
+                <div class="movie_watched">
+                    <custom-button @click="moviesStore.toggleIsWatchedMovie(movie.id)"
+                                   class="add_button"
+                    >
+                        Добавить
+                    </custom-button>
+                </div>
+            </div>
+
         </div>
     </div>
 </template>
@@ -43,6 +54,10 @@ const props = defineProps({
         type: Object,
         required: true,
         default: () => {}
+    },
+    isSearch: {
+        type: Boolean,
+        default: false
     }
 })
 </script>
@@ -110,6 +125,14 @@ const props = defineProps({
 
                         &:hover {
                             opacity: 0.7;
+                        }
+                    }
+                    .add_button {
+                        // styles here
+                        background-color: cornflowerblue;
+
+                        &:hover {
+                            background-color: darkorange;
                         }
                     }
             }

@@ -27,6 +27,7 @@
             <movie-item v-for="mov in searchStore.searchedMovies"
                         :key="mov.id"
                         :movie="mov"
+                        :is-search="true"
             />
         </div>
     </div>
