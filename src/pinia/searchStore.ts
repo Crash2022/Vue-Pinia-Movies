@@ -1,9 +1,11 @@
 import {defineStore} from 'pinia'
 import axios from "axios";
 import {baseURL} from "@/shared/api/instance";
+import {ActiveTabType, MovieType} from '@/pinia/moviesStore';
 
 export const useSearchStore = defineStore('searchStore', {
-    state: () => ({
+    state: (): SearchStateType => ({
+        isLoading: false,
         searchedMovies: []
     }),
     getters: {
@@ -11,6 +13,7 @@ export const useSearchStore = defineStore('searchStore', {
     },
     actions: {
         async getMovies(title: string) {
+            this.isLoading = true
             try {
                 const response = await axios.get(`https:api.themoviedb.org/3/search/movie?api_key=75a89e49905f7c8cb65d8ee3600495a0&query=${title}`)
                 // const response = await axios.get(`https://api.themoviedb.org/3/movie/550?api_key=75a89e49905f7c8cb65d8ee3600495a0&query=${title}`)
@@ -18,10 +21,17 @@ export const useSearchStore = defineStore('searchStore', {
                 this.searchedMovies = response.data.results
             } catch (e) {
                 console.log(e)
+            } finally {
+                this.isLoading = false
             }
         }
     }
 })
+
+export type SearchStateType = {
+    isLoading: boolean
+    searchedMovies: any[]
+}
 
 // response item { } = response.data.results
 

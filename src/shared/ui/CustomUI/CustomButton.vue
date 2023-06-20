@@ -20,7 +20,7 @@ export default {
     cursor: pointer;
     height: 38px;
     min-width: 100px;
-    /*width: 100%;*/
+    width: 100%;
     font-size: 18px;
     display: flex;
     align-items: center;

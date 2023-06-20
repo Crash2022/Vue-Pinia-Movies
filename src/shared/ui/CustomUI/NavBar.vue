@@ -25,12 +25,13 @@ export default {
 
 <style lang="scss" scoped>
 .navbar_wrapper {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 50px;
     background-color: orange;
-    box-shadow: 2px 2px 4px gray;
+    box-shadow: 1px 1px 5px black;
     padding: 0 20px;
 
     .main_link {

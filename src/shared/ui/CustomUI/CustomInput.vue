@@ -12,7 +12,7 @@ export default {
     },
     methods: {
         updateInput(event) {
-            this.$emit('update:modelValue', event.target.value)
+            this.$emit('update:modelValue', event.target.value);
         }
     }
 };
@@ -25,6 +25,7 @@ input {
     border: 2px solid cornflowerblue;
     border-radius: 5px;
 }
+
 input:focus-visible {
     border: 2px solid darkorange;
     outline: none;

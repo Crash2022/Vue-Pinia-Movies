@@ -74,6 +74,8 @@ header {
     margin-bottom: 20px;
 
     button {
+        width: 200px;
+
         &:hover {
             background-color: darkorange;
         }
