@@ -1,8 +1,12 @@
 <template>
     <div class="movie_item">
-        <div class="movie_poster">
+        <div v-if="movie.poster_path" class="movie_poster">
             <img :src="movie.poster_path" :alt="movie.original_title">
         </div>
+        <div v-else class="movie_poster">
+            <img src="@/shared/assets/no-image.jpg" alt="movie_poster">
+        </div>
+
         <div class="movie_info">
             <div class="info_content">
                 <div class="movie_title">{{movie.original_title}}</div>
