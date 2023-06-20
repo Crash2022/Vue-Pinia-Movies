@@ -51,12 +51,16 @@ const props = defineProps({
     display: flex;
     gap: 40px;
     padding: 20px;
+    width: 600px;
     border: 1px solid #c4c4c4;
     border-radius: 5px;
     box-shadow: 1px 1px 6px gray;
     background-color: white;
 
     .movie_poster {
+        min-width: 200px;
+        //height: 200px;
+
         img {
             width: 200px;
             height: 200px;
@@ -68,12 +72,25 @@ const props = defineProps({
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        width: 400px;
 
         .info_content {
+            margin-bottom: 10px;
+
             .movie_title {
                 font-weight: bold;
                 font-size: 20px;
                 margin-bottom: 10px;
+            }
+            .movie_overview {
+                //height: 37px; // 2 строки
+                height: 90px; // 2 строки
+
+                // обрезка строки
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 5; // количество строк
+                -webkit-box-orient: vertical;
             }
         }
         .movie_buttons {

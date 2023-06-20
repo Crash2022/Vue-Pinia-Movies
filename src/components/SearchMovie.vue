@@ -19,6 +19,12 @@
         <div v-if="searchStore.isLoading" class="loader">
             <roller-loader/>
         </div>
+        <div class="searchedMovies">
+            <movie-item v-for="mov in searchStore.searchedMovies"
+                        :key="mov.id"
+                        :movie="mov"
+            />
+        </div>
     </div>
 </template>
 
@@ -27,6 +33,7 @@ import {ref} from 'vue'
 import {useSearchStore} from '@/pinia/searchStore'
 import CustomButton from '@/shared/ui/CustomUI/CustomButton.vue'
 import RollerLoader from '@/shared/ui/CustomUI/RollerLoader.vue';
+import MovieItem from '@/components/MovieItem.vue';
 
 const searchStore=useSearchStore()
 const searchQuery = ref('')
@@ -34,12 +41,16 @@ const searchQuery = ref('')
 
 <style lang="scss" scoped>
 .search_wrapper {
-    height: calc(100vh - 210px);
+    min-height: calc(100vh - 210px);
+    height: 100%;
+    margin-bottom: 30px;
 
     .search_form {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 20px;
+        margin-bottom: 20px;
 
         input {
             width: 300px;
@@ -53,6 +64,11 @@ const searchQuery = ref('')
         margin-top: 50px;
         display: flex;
         justify-content: center;
+    }
+    .searchedMovies {
+        > div {
+            margin-bottom: 10px;
+        }
     }
 }
 </style>
