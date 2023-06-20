@@ -4,7 +4,7 @@
             Главная
         </div>
         <nav class="navbar_links">
-            <div class="post_button">
+            <div class="movies_button">
                 <custom-button @click="$router.push('/movies')">Фильмы</custom-button>
             </div>
 <!--            <div>-->
@@ -23,7 +23,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .navbar_wrapper {
     display: flex;
     align-items: center;
@@ -32,22 +32,29 @@ export default {
     background-color: orange;
     box-shadow: 2px 2px 4px gray;
     padding: 0 20px;
-}
-.main_link:hover {
-    cursor: pointer;
-    color: white;
-}
-.navbar_links {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-.post_button button {
-    background-color: aliceblue;
-    color: black;
-}
-.post_button button:hover {
-    background-color: cornflowerblue;
-    color: white;
+
+    .main_link {
+        &:hover {
+            cursor: pointer;
+            color: white;
+        }
+    }
+    .navbar_links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .movies_button {
+            button {
+                background-color: aliceblue;
+                color: black;
+
+                &:hover {
+                    background-color: cornflowerblue;
+                    color: white;
+                }
+            }
+        }
+    }
 }
 </style>

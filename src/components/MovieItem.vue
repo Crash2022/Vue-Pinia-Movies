@@ -1,7 +1,7 @@
 <template>
     <div class="movie_item">
         <div class="movie_poster">
-            <img src="https://avatars.dzeninfra.ru/get-zen_doc/3362051/pub_5fce0abdf825a128413431d0_5fce84ec0a45a91cf4886d2c/scale_1200" alt="movie-poster">
+            <img :src="movie.poster_path" :alt="movie.original_title">
         </div>
         <div class="movie_info">
             <div class="info_content">
@@ -9,8 +9,10 @@
                 <div class="movie_overview">{{movie.overview}}</div>
             </div>
             <div class="movie_buttons">
-                <div>
-                    <custom-button @click="">
+                <div class="movie_watched">
+                    <custom-button @click=""
+                                   :class="`${movie.isWatched ? 'button_watched' : 'button_unwatched'}`"
+                    >
                         <span v-if="!movie.isWatched">Непросмотрено</span>
                         <span v-else>Просмотрено</span>
                     </custom-button>
@@ -71,9 +73,31 @@ const props = defineProps({
             gap: 10px;
             justify-content: center;
 
+            .movie_watched {
+                    .button_watched {
+                        background-color: green;
+
+                        &:hover {
+                            opacity: 0.7;
+                        }
+                    }
+                    .button_unwatched {
+                        background-color: cornflowerblue;
+
+                        &:hover {
+                            opacity: 0.7;
+                        }
+                    }
+            }
+
             .movie_delete {
                 button {
+                    opacity: 0.7;
                     background-color: red;
+
+                    &:hover {
+                        opacity: 1;
+                    }
                 }
             }
         }
