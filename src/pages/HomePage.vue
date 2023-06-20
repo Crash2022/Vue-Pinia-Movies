@@ -1,7 +1,9 @@
 <template>
-    <div class="title">
-        <h1 >Добро пожаловать в приложение</h1>
-        <h1>"Любимые фильмы"</h1>
+    <div class="home_page">
+        <div class="title">
+            <h1>Добро пожаловать в приложение</h1>
+            <h1>"Любимые фильмы"</h1>
+        </div>
     </div>
 </template>
 
@@ -12,10 +14,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.title {
-    margin-top: 100px;
+.home_page {
     padding: 20px;
-    text-align: center;
-    line-height: 50px;
+    height: calc(100vh - 50px);
+
+    .title {
+        margin-top: 100px;
+        text-align: center;
+
+        h1 {
+            line-height: 50px;
+        }
+    }
 }
 </style>

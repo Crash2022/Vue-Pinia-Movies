@@ -54,6 +54,7 @@ const props = defineProps({
     border: 1px solid #c4c4c4;
     border-radius: 5px;
     box-shadow: 1px 1px 6px gray;
+    background-color: white;
 
     .movie_poster {
         img {

@@ -1,7 +1,9 @@
 <template>
     <navbar/>
     <div class="app">
-        <router-view></router-view>
+        <div class="container">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
@@ -20,11 +22,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: calc(100vh - 50px);
     width: 100%;
-    max-width: 900px;
     margin: 0 auto;
-    //border: 1px solid black;
+    background-color: #f6f6f6;
     //overflow-x: hidden;
+
+    .container {
+        //border: 1px solid black;
+        width: 100%;
+        max-width: 900px;
+    }
 }
 </style>
