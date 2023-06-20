@@ -1,6 +1,5 @@
 <template>
-    <input class="custom_input"
-           :value="modelValue"
+    <input :value="modelValue"
            @input="updateInput"
     />
 </template>
@@ -20,7 +19,14 @@ export default {
 </script>
 
 <style scoped>
-.custom_input {
-    padding: 10px;
+input {
+    padding: 14px;
+    font-size: 16px;
+    border: 2px solid cornflowerblue;
+    border-radius: 5px;
+}
+input:focus-visible {
+    border: 2px solid darkorange;
+    outline: none;
 }
 </style>
