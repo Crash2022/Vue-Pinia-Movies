@@ -1,5 +1,6 @@
 import {defineStore} from 'pinia'
 import {moviesAPI} from "@/shared/api/api"
+import {useMoviesStore} from "@/pinia/moviesStore"
 
 export const useSearchStore = defineStore('searchStore', {
     state: (): SearchStateType => ({
@@ -26,6 +27,9 @@ export const useSearchStore = defineStore('searchStore', {
             } finally {
                 this.isLoading = false
             }
+        },
+        addToFavorites(object: any) {
+            console.log(object)
         }
     }
 })

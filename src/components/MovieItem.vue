@@ -39,7 +39,7 @@
                  class="movie_buttons"
             >
                 <div class="movie_watched">
-                    <custom-button @click="moviesStore.toggleIsWatchedMovie(movie.id)"
+                    <custom-button @click="searchStore.addToFavorites(movie.id)"
                                    class="add_button"
                     >
                         Добавить
@@ -53,8 +53,10 @@
 <script setup>
 import CustomButton from '@/shared/ui/CustomUI/CustomButton.vue'
 import {useMoviesStore} from '@/pinia/moviesStore'
+import {useSearchStore} from '@/pinia/searchStore'
 
 const moviesStore = useMoviesStore()
+const searchStore = useSearchStore()
 
 const props = defineProps({
     movie: {
