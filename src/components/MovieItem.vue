@@ -14,8 +14,15 @@
 
         <div class="movie_info">
             <div class="info_content">
-                <div class="movie_title">{{movie.original_title}}</div>
-                <div class="movie_overview">{{movie.overview}}</div>
+                <div class="movie_title">
+                    {{movie.original_title}}<span v-if="movie.release_date.length">, {{movie.release_date.slice(0, 4)}}</span>
+                </div>
+                <div class="movie_overview" v-if="movie.overview.length">
+                    {{movie.overview}}
+                </div>
+                <div v-else style="font-style: italic">
+                    К сожалению, описания к данному фильму нет.
+                </div>
             </div>
 
             <div v-if="!isSearch"
