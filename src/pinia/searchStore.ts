@@ -30,7 +30,6 @@ import {MovieType, useMoviesStore} from "@/pinia/moviesStore"
 //             }
 //         },
 //         addToFavorites(movie: any) {
-//             console.log(movie)
 //             const moviesStore = useMoviesStore()
 //             if (moviesStore.movies.some((m: MovieType) => m.id === toRaw(movie).id)) return
 //             moviesStore.movies.push({...movie, isWatched: false})
@@ -43,6 +42,7 @@ import {MovieType, useMoviesStore} from "@/pinia/moviesStore"
 export const useSearchStore = defineStore('searchStore', () => {
     const isLoading = ref(false)
     const searchedMovies = ref([])
+
     const getMovies = async (title: string) => {
         isLoading.value = true
         try {
@@ -63,8 +63,9 @@ export const useSearchStore = defineStore('searchStore', () => {
 
         if (moviesStore.movies.some((m: MovieType) => m.id === toRaw(movie).id)) return
         // @ts-ignore
-        moviesStore.movies.push({...movie, isWatched: false})
+        moviesStore.movies.push({...movie, isWatched: false, addedError: ''})
         // moviesStore.activeTab = 'movies'
+        console.log(moviesStore.movies)
     }
 
     return {

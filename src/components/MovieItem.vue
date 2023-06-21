@@ -47,11 +47,18 @@
             >
                 <div class="movie_watched">
                     <custom-button @click="searchStore.addToFavorites(movie)"
-                                   class="add_button"
+                                   :class="`${moviesStore.movies.some(m => m.id === movie.id) ? 'added_button' : 'add_button'}`"
                     >
-                        Добавить
+<!--                        Добавить-->
+                        <span v-if="moviesStore.movies.some(m => m.id === movie.id)"
+                              class="added_button"
+                        >
+                            Добавлено
+                        </span>
+                        <span v-else>Добавить</span>
                     </custom-button>
                 </div>
+<!--                <div v-if="searchStore.isEqual">{{movie.addedError}}</div>-->
             </div>
         </div>
     </div>
@@ -151,6 +158,9 @@ const props = defineProps({
                             background-color: darkorange;
                         }
                     }
+                .added_button {
+                    background-color: darkorange;
+                }
             }
 
             .movie_delete {
