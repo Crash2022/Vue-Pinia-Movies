@@ -43,6 +43,14 @@ export const useSearchStore = defineStore('searchStore', () => {
     const isLoading = ref(false)
     const searchedMovies = ref([])
 
+    const isEqual = ref(false)
+    const toasted = ref(null)
+
+    const showToast = () => {
+        // @ts-ignore
+        toasted.value.error('Этот фильм уже добавлен в ваш список')
+    }
+
     const getMovies = async (title: string) => {
         isLoading.value = true
         try {
@@ -62,6 +70,8 @@ export const useSearchStore = defineStore('searchStore', () => {
         // console.log(rawMovie)
 
         if (moviesStore.movies.some((m: MovieType) => m.id === toRaw(movie).id)) {
+            isEqual.value = true
+            showToast()
             return
         }
         // @ts-ignore
@@ -71,7 +81,7 @@ export const useSearchStore = defineStore('searchStore', () => {
     }
 
     return {
-        isLoading, searchedMovies, getMovies, addToFavorites
+        isLoading, searchedMovies, getMovies, addToFavorites, isEqual
     }
 })
 

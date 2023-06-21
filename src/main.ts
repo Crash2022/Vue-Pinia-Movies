@@ -7,8 +7,11 @@ import {createPinia} from 'pinia'
 import components from '@/shared/ui/'
 import directives from '@/shared/directives/index'
 // import VFocus from '@/shared/directives/VFocus'
+import Toasted from 'vue-toasted'
 
 const app = createApp(App)
+
+// app.use(Toasted)
 
 // глобальный импорт компонент
 components.forEach((comp: any) => {
@@ -23,4 +26,5 @@ directives.forEach((dir: any) => {
 app.use(createPinia())
    .use(store)
    .use(router)
+   .use(Toasted)
    .mount('#app')
