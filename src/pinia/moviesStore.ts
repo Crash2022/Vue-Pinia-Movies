@@ -1,6 +1,6 @@
 import {defineStore} from 'pinia'
 import {SearchedMovieType} from "@/pinia/searchStore"
-import {ref, computed} from 'vue'
+import {ref, watch, computed} from 'vue'
 
 // export const useMoviesStore = defineStore('moviesStore', {
 //     state: (): MoviesStateType => ({
@@ -39,6 +39,17 @@ import {ref, computed} from 'vue'
 export const useMoviesStore = defineStore('moviesStore', () => {
     const movies = ref([])
     const activeTab = ref<ActiveTabType>('search')
+
+    const moviesInLocalStorage = localStorage.getItem('movies')
+
+    if (moviesInLocalStorage) {
+        movies.value = JSON.parse(moviesInLocalStorage)._value
+        // console.log(JSON.parse(moviesInLocalStorage))
+    }
+
+    watch(() => movies, (state) => {
+        localStorage.setItem('movies', JSON.stringify(state))
+    }, {deep: true})
 
     const watchedMovies = computed(() => {
         return movies.value.filter((m: MovieType) => m.isWatched)
