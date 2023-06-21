@@ -1,7 +1,7 @@
 import {defineStore} from 'pinia'
-import {ref} from 'vue'
+import {ref, toRaw} from 'vue'
 import {moviesAPI} from "@/shared/api/api"
-import {useMoviesStore} from "@/pinia/moviesStore"
+import {MovieType, useMoviesStore} from "@/pinia/moviesStore"
 
 // export const useSearchStore = defineStore('searchStore', {
 //     state: (): SearchStateType => ({
@@ -22,7 +22,7 @@ import {useMoviesStore} from "@/pinia/moviesStore"
 //
 //                 const response = await moviesAPI.getMovies(title)
 //                 this.searchedMovies = response
-//                 console.log(response)
+//                 // console.log(response)
 //             } catch (e) {
 //                 console.log(e)
 //             } finally {
@@ -47,7 +47,7 @@ export const useSearchStore = defineStore('searchStore', () => {
         try {
             const response = await moviesAPI.getMovies(title)
             searchedMovies.value = response
-            console.log(response)
+            // console.log(response)
         } catch (e) {
             console.log(e)
         } finally {
@@ -56,6 +56,12 @@ export const useSearchStore = defineStore('searchStore', () => {
     }
     const addToFavorites = (movie: any) => {
         const moviesStore = useMoviesStore()
+
+        // const rawMovie = toRaw(movie)
+        // console.log(rawMovie)
+
+        if (moviesStore.movies.some((m: MovieType) => m.id === toRaw(movie).id)) return
+        // @ts-ignore
         moviesStore.movies.push({...movie, isWatched: false})
         // moviesStore.activeTab = 'movies'
     }

@@ -22,8 +22,8 @@ import {ref, computed} from 'vue'
 //         // }
 //     },
 //     actions: {
-//         setActiveTab(activeTab: ActiveTabType) {
-//             this.activeTab = activeTab
+//         setActiveTab(tab: ActiveTabType) {
+//             this.activeTab = tab
 //         },
 //         toggleIsWatchedMovie(movieId: number) {
 //             const movieIndex = this.movies.findIndex(m => m.id === movieId)
@@ -47,11 +47,13 @@ export const useMoviesStore = defineStore('moviesStore', () => {
         return movies.value.length
     })
 
-    const setActiveTab = (activeTab: ActiveTabType) => {
-        activeTab.value = activeTab
+    const setActiveTab = (tab: ActiveTabType) => {
+        // @ts-ignore
+        activeTab.value = tab
     }
     const toggleIsWatchedMovie = (movieId: number) => {
         const movieIndex = movies.value.findIndex((m: MovieType) => m.id === movieId)
+        // @ts-ignore
         movies.value[movieIndex].isWatched = !movies.value[movieIndex].isWatched
     }
     const deleteMovie = (movieId: number) => {
