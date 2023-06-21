@@ -62,6 +62,7 @@ const toggleTab = (activeTab) => {
 
 <style lang="scss" scoped>
 .content {
+    min-height: calc(100vh - 90px);
     margin-top: 40px;
     display: flex;
     flex-direction: column;
