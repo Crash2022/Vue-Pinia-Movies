@@ -1,4 +1,5 @@
 import {defineStore} from 'pinia'
+import {SearchedMovieType} from "@/pinia/searchStore";
 
 export const useMoviesStore = defineStore('moviesStore', {
     state: (): MoviesStateType => ({
@@ -38,12 +39,7 @@ export type MoviesStateType = {
     activeTab: ActiveTabType
 }
 
-export type MovieType = {
-    id: number
-    original_title: string
-    overview: string
-    poster_path: string
-    release_date: string
+export type MovieType = SearchedMovieType & {
     isWatched: boolean
 }
 

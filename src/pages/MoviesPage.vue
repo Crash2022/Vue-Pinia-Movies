@@ -1,8 +1,8 @@
 <template>
     <div class="content">
-        <header>
-            <h2>Любимые фильмы</h2>
-        </header>
+<!--        <header>-->
+<!--            <h2>Любимые фильмы</h2>-->
+<!--        </header>-->
 
         <div class="tabs">
             <custom-button @click="moviesStore.setActiveTab('search')"
@@ -66,6 +66,7 @@ const toggleTab = (activeTab) => {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: hidden;
 }
 header {
     margin-bottom: 30px;
