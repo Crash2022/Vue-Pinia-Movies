@@ -1,5 +1,4 @@
-// import Vue from 'vue'
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -10,8 +9,6 @@ import directives from '@/shared/directives/index'
 import Toasted from 'vue-toasted'
 
 const app = createApp(App)
-
-// app.use(Toasted)
 
 // глобальный импорт компонент
 components.forEach((comp: any) => {
@@ -26,5 +23,9 @@ directives.forEach((dir: any) => {
 app.use(createPinia())
    .use(store)
    .use(router)
-   .use(Toasted)
+   .use(Toasted, {
+       theme: "toasted-primary",
+       position: "bottom-left",
+       duration : 3000
+   })
    .mount('#app')

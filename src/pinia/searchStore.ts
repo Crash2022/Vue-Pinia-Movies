@@ -70,7 +70,7 @@ export const useSearchStore = defineStore('searchStore', () => {
         // console.log(rawMovie)
 
         if (moviesStore.movies.some((m: MovieType) => m.id === toRaw(movie).id)) {
-            isEqual.value = true
+            // isEqual.value = true
             showToast()
             return
         }
