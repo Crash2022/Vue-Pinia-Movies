@@ -28,8 +28,11 @@ export const useSearchStore = defineStore('searchStore', {
                 this.isLoading = false
             }
         },
-        addToFavorites(object: any) {
-            console.log(object)
+        addToFavorites(movie: any) {
+            console.log(movie)
+            const moviesStore = useMoviesStore()
+            moviesStore.movies.push({...movie, isWatched: false})
+            moviesStore.activeTab = 'movies'
         }
     }
 })

@@ -39,7 +39,7 @@
                  class="movie_buttons"
             >
                 <div class="movie_watched">
-                    <custom-button @click="searchStore.addToFavorites(movie.id)"
+                    <custom-button @click="searchStore.addToFavorites(movie)"
                                    class="add_button"
                     >
                         Добавить
