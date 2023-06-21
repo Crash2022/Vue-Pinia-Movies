@@ -42,7 +42,7 @@ import CustomButton from '@/shared/ui/CustomUI/CustomButton.vue'
 import RollerLoader from '@/shared/ui/CustomUI/RollerLoader.vue'
 import MovieItem from '@/components/MovieItem.vue'
 
-const searchStore=useSearchStore()
+const searchStore = useSearchStore()
 const searchQuery = ref('')
 </script>
 

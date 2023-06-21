@@ -61,7 +61,9 @@ export const useSearchStore = defineStore('searchStore', () => {
         // const rawMovie = toRaw(movie)
         // console.log(rawMovie)
 
-        if (moviesStore.movies.some((m: MovieType) => m.id === toRaw(movie).id)) return
+        if (moviesStore.movies.some((m: MovieType) => m.id === toRaw(movie).id)) {
+            return
+        }
         // @ts-ignore
         moviesStore.movies.push({...movie, isWatched: false, addedError: ''})
         // moviesStore.activeTab = 'movies'
