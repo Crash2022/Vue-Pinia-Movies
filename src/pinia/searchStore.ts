@@ -32,6 +32,7 @@ import {MovieType, useMoviesStore} from "@/pinia/moviesStore"
 //         addToFavorites(movie: any) {
 //             console.log(movie)
 //             const moviesStore = useMoviesStore()
+//             if (moviesStore.movies.some((m: MovieType) => m.id === toRaw(movie).id)) return
 //             moviesStore.movies.push({...movie, isWatched: false})
 //             // moviesStore.activeTab = 'movies'
 //         }
