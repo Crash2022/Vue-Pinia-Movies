@@ -1,5 +1,5 @@
 import {defineStore} from 'pinia'
-import {moviesAPI} from "@/shared/api/api";
+import {moviesAPI} from "@/shared/api/api"
 
 export const useSearchStore = defineStore('searchStore', {
     state: (): SearchStateType => ({

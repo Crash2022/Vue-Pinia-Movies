@@ -33,4 +33,45 @@
         max-width: 900px;
     }
 }
+
+/*---------------scrollbar---------------*/
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: cornflowerblue;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: grey;
+    opacity: 0.5;
+}
+
+.app::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track */
+.app::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+/* Handle */
+.app::-webkit-scrollbar-thumb {
+    background: cornflowerblue;
+}
+
+/* Handle on hover */
+.app::-webkit-scrollbar-thumb:hover {
+    border: 2px solid cornflowerblue;
+}
 </style>
