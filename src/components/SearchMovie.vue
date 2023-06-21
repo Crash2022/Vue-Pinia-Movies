@@ -48,7 +48,7 @@ const searchQuery = ref('')
 
 <style lang="scss" scoped>
 .search_wrapper {
-    min-height: calc(100vh - 210px);
+    min-height: calc(100vh - 240px);
     height: 100%;
     margin-bottom: 30px;
 

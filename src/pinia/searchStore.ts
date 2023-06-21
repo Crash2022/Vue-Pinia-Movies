@@ -1,6 +1,5 @@
 import {defineStore} from 'pinia'
-import axios from "axios"
-import {baseURL} from '@/shared/api/instance'
+import {moviesAPI} from "@/shared/api/api";
 
 export const useSearchStore = defineStore('searchStore', {
     state: (): SearchStateType => ({
@@ -14,9 +13,14 @@ export const useSearchStore = defineStore('searchStore', {
         async getMovies(title: string) {
             this.isLoading = true
             try {
-                const response = await axios.get(`${baseURL}&query=${title}`)
-                this.searchedMovies = response.data.results
-                console.log(response.data.results)
+                // вариант запроса без инстанс
+                // const response = await axios.get(`${baseURL}&query=${title}`)
+                // this.searchedMovies = response.data.results
+                // console.log(response.data.results)
+
+                const response = await moviesAPI.getMovies(title)
+                this.searchedMovies = response
+                console.log(response)
             } catch (e) {
                 console.log(e)
             } finally {
