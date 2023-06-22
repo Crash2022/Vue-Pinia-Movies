@@ -2,8 +2,6 @@ import {defineStore} from 'pinia'
 import {ref, toRaw} from 'vue'
 import {moviesAPI} from "@/shared/api/api"
 import {MovieType, useMoviesStore} from "@/pinia/moviesStore"
-// import {useToast} from "vue-toastification/composition"
-// import {useToast} from 'vue-toastification'
 
 // export const useSearchStore = defineStore('searchStore', {
 //     state: (): SearchStateType => ({
