@@ -2,6 +2,8 @@ import {defineStore} from 'pinia'
 import {ref, toRaw} from 'vue'
 import {moviesAPI} from "@/shared/api/api"
 import {MovieType, useMoviesStore} from "@/pinia/moviesStore"
+// import {useToast} from "vue-toastification/composition"
+// import {useToast} from 'vue-toastification'
 
 // export const useSearchStore = defineStore('searchStore', {
 //     state: (): SearchStateType => ({
@@ -42,14 +44,7 @@ import {MovieType, useMoviesStore} from "@/pinia/moviesStore"
 export const useSearchStore = defineStore('searchStore', () => {
     const isLoading = ref(false)
     const searchedMovies = ref([])
-
-    const isEqual = ref(false)
-    const toasted = ref(null)
-
-    const showToast = () => {
-        // @ts-ignore
-        toasted.value.error('Этот фильм уже добавлен в ваш список')
-    }
+    // const isEqual = ref(false)
 
     const getMovies = async (title: string) => {
         isLoading.value = true
@@ -70,8 +65,7 @@ export const useSearchStore = defineStore('searchStore', () => {
         // console.log(rawMovie)
 
         if (moviesStore.movies.some((m: MovieType) => m.id === toRaw(movie).id)) {
-            // isEqual.value = true
-            showToast()
+            // showToast()
             return
         }
         // @ts-ignore
@@ -81,7 +75,7 @@ export const useSearchStore = defineStore('searchStore', () => {
     }
 
     return {
-        isLoading, searchedMovies, getMovies, addToFavorites, isEqual
+        isLoading, searchedMovies, getMovies, addToFavorites
     }
 })
 
